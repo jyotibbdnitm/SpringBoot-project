@@ -63,6 +63,11 @@ public class JavaTraineeController {
         }
 
     }
+//    @ExceptionHandler(value = ResourceNotFoundException.class)
+//    public ResponseEntity<Object> exceptionhandler(){
+//        return ResponseHandler.requestHandling(HttpStatus.BAD_REQUEST, false, "Exception Error", null);
+//
+//    }
 @PutMapping(value="/put/{id}")
     public ResponseEntity<Object> updateJavaTrainee(@RequestBody JavaTraineeDto dto, @PathVariable String id){
     JavaTraineeDto javaTraineeDto=javaTraineeService.updateTrainee(dto, id);
@@ -74,4 +79,7 @@ public class JavaTraineeController {
 
     return trainee;
     }
+
+
 }
+

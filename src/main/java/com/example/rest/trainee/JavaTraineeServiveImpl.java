@@ -49,7 +49,7 @@ public class JavaTraineeServiveImpl implements JavaTraineeService {
 
     @Override
     public JavaTraineeDto getTraineeByid(String id) {
-        JavaTraineeEntity entity= javaTraineeRepository.findById(id).get();
+        JavaTraineeEntity entity= javaTraineeRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
         //mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         JavaTraineeDto dto=mapper.convertValue(entity, JavaTraineeDto.class);
         //JavaTraineeDto dto= mapper.convertValue(entity, JavaTraineeDto.class);
