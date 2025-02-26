@@ -1,6 +1,7 @@
 package com.example.rest.trainee;
 
 import com.example.rest.rsponsehandler.ResponseHandler;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -20,7 +21,7 @@ public class JavaTraineeController {
         this.javaTraineeService=javaTraineeService;
     }
 @PostMapping(value="/post")
-    public ResponseEntity<Object> registerJavaTrainee(@RequestBody JavaTraineeDto dto){
+    public ResponseEntity<Object> registerJavaTrainee(@Valid @RequestBody JavaTraineeDto dto){
     JavaTraineeDto trainee= javaTraineeService.registerTrainee(dto);
 
     if(trainee!=null){
@@ -36,7 +37,7 @@ public class JavaTraineeController {
 
     }
 @PostMapping(value="/postall")
-    public ResponseEntity<List<JavaTraineeDto>> registerAllJavaTrainee(@RequestBody List<JavaTraineeDto> dto){
+    public ResponseEntity<List<JavaTraineeDto>> registerAllJavaTrainee(@Valid @RequestBody List<JavaTraineeDto> dto){
     List<JavaTraineeDto> list = javaTraineeService.registerAllTrainee(dto);
         ResponseEntity<List<JavaTraineeDto>>responseEntity=
                 ResponseEntity
